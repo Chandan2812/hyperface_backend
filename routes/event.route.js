@@ -7,8 +7,8 @@ const eventRouter = express.Router();
 
 // Middleware to authenticate JWT token
 function authenticateToken(req, res, next) {
-    const authHeader = req.headers['authorization'];
-    const token = authHeader && authHeader.split(' ')[1];
+
+    const token = req.headers.authorization;
     if (token == null) {
         return res.status(401).json({ status: "error", message: "Unauthorized: JWT token not provided" });
     }

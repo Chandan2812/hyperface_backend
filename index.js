@@ -13,6 +13,14 @@ const app = express();
 app.use(express.json()); 
 app.use(cors())
 
+app.get('/', async (req, res) => {
+    try {
+      res.json('Welcome to the google-Calendar');
+    } catch (error) {
+      console.log(error);
+    }
+  });
+
 app.use("/users",userRouter)
 app.use("/events",eventRouter)
 
